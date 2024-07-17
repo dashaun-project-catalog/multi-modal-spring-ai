@@ -1,0 +1,29 @@
+spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+  profiles:
+    active: openai
+  threads:
+    virtual:
+      enabled: true
+---
+spring:
+  ai:
+    ollama:
+      chat:
+        options:
+          model: llava
+  config:
+    activate:
+      on-profile: llava
+---
+spring:
+  ai:
+    openai:
+      chat:
+        options:
+          model: gpt-4o
+  config:
+    activate:
+      on-profile: gpt-4o
